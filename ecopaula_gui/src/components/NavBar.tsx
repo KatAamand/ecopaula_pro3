@@ -1,6 +1,5 @@
-import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -8,7 +7,7 @@ const NavBar = () => {
             <Navbar expand="md" className="p-3">
                 <Navbar.Brand as={Link} to="/">
                     <img
-                        src="/ecopaula_logo.png"
+                        src="/public/ecopaula_logo.png"
                         width="110"
                         height="90"
                         className="d-inline-block align-top"

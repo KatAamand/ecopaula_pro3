@@ -1,4 +1,4 @@
-﻿package org.ecopaula.ecopaula_server.entity;
+package org.ecopaula.server.entity;
 
 public class Product {
     private int id;

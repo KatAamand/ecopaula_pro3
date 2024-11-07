@@ -1,4 +1,4 @@
-﻿package org.ecopaula.ecopaula_server.entity;
+package org.ecopaula.server.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,13 +13,13 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double weight;
-    private Date registrationDate;
+    private Date registration_date;
     private int origin;
 
     public Animal(int id, double weight, Date registrationDate, int origin) {
         this.id = id;
         this.weight = weight;
-        this.registrationDate = registrationDate;
+        this.registration_date = registrationDate;
         this.origin = origin;
     }
 
@@ -42,11 +42,11 @@ public class Animal {
     }
 
     public Date getRegistrationDate() {
-        return registrationDate;
+        return registration_date;
     }
 
     public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
+        this.registration_date = registrationDate;
     }
 
     public int getOrigin() {

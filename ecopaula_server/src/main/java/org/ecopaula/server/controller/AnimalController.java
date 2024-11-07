@@ -1,14 +1,12 @@
-﻿package org.ecopaula.ecopaula_server.controller;
+package org.ecopaula.server.controller;
 
-import org.ecopaula.ecopaula_server.dto.AnimalDTO;
-import org.ecopaula.ecopaula_server.repository.AnimalRepository;
-import org.ecopaula.ecopaula_server.service.AnimalService;
+import org.ecopaula.server.dto.AnimalDTO;
+import org.ecopaula.server.service.AnimalService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/animals")
 public class AnimalController {
@@ -21,5 +19,10 @@ public class AnimalController {
     @PostMapping
     public ResponseEntity<AnimalDTO> registerAnimal(@RequestBody AnimalDTO animalDTO) {
         return ResponseEntity.ok(animalService.createAnimal(animalDTO));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<AnimalDTO>> getAllAnimals() {
+        return ResponseEntity.ok(animalService.getAllAnimals());
     }
 }
