@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-
+import { OriginsProvider } from './OriginsContext';
 import RegistrationOverview from "./components/RegistrationOverview.tsx";
 import RegisterAnimalForm from "./components/forms/RegisterAnimalForm.tsx";
 
@@ -13,15 +13,18 @@ const pageStyle = {
 function App() {
 
     return (
-        <Router>
-            <div style={pageStyle}>
-                <NavBar />
-                <Routes>
-                    <Route path="/register" element={<RegisterAnimalForm />} />
-                    <Route path="/" element={<RegistrationOverview />} />
-                </Routes>
-            </div>
-        </Router>
+        <OriginsProvider>
+            <Router>
+                <div style={pageStyle}>
+                    <NavBar />
+                    <Routes>
+                        <Route path="/register" element={<RegisterAnimalForm />} />
+                        <Route path="/" element={<RegistrationOverview />} />
+                    </Routes>
+                </div>
+            </Router>
+        </OriginsProvider>
+
     );
 }
 

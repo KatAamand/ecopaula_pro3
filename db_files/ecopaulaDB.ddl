@@ -8,7 +8,7 @@ CREATE TABLE part_type (
 
 CREATE TABLE origin (
     id SERIAL PRIMARY KEY,
-    name_of_farm VARCHAR(50) NOT NULL
+    name_of_farm VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE animal (

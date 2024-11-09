@@ -1,43 +1,48 @@
 import { useState, useEffect } from 'react';
 import { Container, Form, InputGroup, Table, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { useOrigins } from "../OriginsContext.tsx";
 
 type Animal = {
   id: number;
   registrationDate: Date;
   weight: number;
-  origin: string;
+  origin: number;
+  name_of_farm?: string;
 };
+
 
 const RegistrationOverview = () => {
   const [animals, setAnimals] = useState<Animal[]>([]);
   const [filterDate, setFilterDate] = useState('');
   const [filterOrigin, setFilterOrigin] = useState('');
+  const { origins } = useOrigins();
 
   // Fetch animals from the backend API
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
         const response = await axios.get('http://localhost:8080/animals');
-        console.log(response.data);
 
         const parsedAnimals: Animal[] = response.data.map((animal: { registrationDate: string | number | Date; }) => ({
           ...animal,
           registrationDate: new Date(animal.registrationDate),
         }));
 
-        parsedAnimals.map((animal) => (
-           console.log(animal.registrationDate)
-        ))
+        const animalsWithFarmNames = parsedAnimals.map(animal => {
+          const origin = origins.find(o => o.id === animal.origin);
+          return { ...animal, name_of_farm: origin ? origin.name_of_farm : '' };
+        });
 
-        setAnimals(parsedAnimals);
+        setAnimals(animalsWithFarmNames);
       } catch (error) {
         console.error("Error fetching animals:", error);
       }
     };
-    fetchAnimals();
-  }, []);
 
+    // fetching data
+    fetchAnimals();
+  }, [origins]);
 
   const formatDate = (date : Date) => {
     const day = String(date.getDate()).padStart(2, '0');
@@ -56,9 +61,9 @@ const RegistrationOverview = () => {
     const formattedDate = formatDate(animal.registrationDate);
     return (
         (!filterDate || formattedDate === formatInputDate(filterDate)) &&
-        (!filterOrigin || animal.origin === filterOrigin)
+        (!filterOrigin || animal.origin.toString() === filterOrigin)
     );
-  });
+  }).sort((a, b) => b.registrationDate.getTime() - a.registrationDate.getTime());
 
   // Clear filters
   const clearFilters = () => {
@@ -75,11 +80,11 @@ const RegistrationOverview = () => {
             />
           </InputGroup>
           <InputGroup className="mb-3">
-            <Form.Select value={filterOrigin} onChange={(e) => setFilterOrigin(e.target.value)} >
-              <option value="">Select Origin</option>
-              <option value="Farm 1">Farm 1</option>
-              <option value="Farm 2">Farm 2</option>
-              <option value="Farm 3">Farm 3</option>
+            <Form.Select value={filterOrigin} onChange={(e) => setFilterOrigin(e.target.value)}>
+              <option value="" disabled>Select Origin</option>
+              {origins.map((origin) => (
+                  <option key={origin.id} value={origin.id}>{origin.name_of_farm}</option>
+              ))}
             </Form.Select>
           </InputGroup>
           <div className="d-flex justify-content-end">
@@ -104,7 +109,7 @@ const RegistrationOverview = () => {
                 <td>{animal.id}</td>
                 <td>{formatDate(animal.registrationDate)}</td>
                 <td>{animal.weight}</td>
-                <td>{animal.origin}</td>
+                <td>{animal.name_of_farm}</td>
               </tr>
           ))}
           </tbody>
