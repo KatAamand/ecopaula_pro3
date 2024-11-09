@@ -1,22 +1,32 @@
 package org.ecopaula.server.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
+@Table(name = "animal", schema = "ecopaula_production")
 public class Animal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private double weight;
-    private Date registration_date;
-    private int origin;
+    private Integer id;
 
-    public Animal(int id, double weight, Date registrationDate, int origin) {
+    private Double weight;
+
+    @Column(name = "registration_date")
+    private Date registration_date;
+
+    @ManyToOne
+    @JoinColumn(name = "origin", nullable = false)
+    private Origin origin;
+
+    @OneToMany(mappedBy = "animal")
+    private Set<Cut> cuts;
+
+
+    public Animal(int id, double weight, Date registrationDate, Origin origin) {
         this.id = id;
         this.weight = weight;
         this.registration_date = registrationDate;
@@ -49,11 +59,11 @@ public class Animal {
         this.registration_date = registrationDate;
     }
 
-    public int getOrigin() {
+    public Origin getOrigin() {
         return origin;
     }
 
-    public void setOrigin(int origin) {
+    public void setOrigin(Origin origin) {
         this.origin = origin;
     }
 }

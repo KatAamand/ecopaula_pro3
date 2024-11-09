@@ -3,11 +3,16 @@ import { Container, Form, InputGroup, Table, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useOrigins } from "../OriginsContext.tsx";
 
+type Origin = {
+  id: number;
+  name_of_farm: string;
+};
+
 type Animal = {
   id: number;
   registrationDate: Date;
   weight: number;
-  origin: number;
+  origin: Origin;
   name_of_farm?: string;
 };
 
@@ -20,31 +25,26 @@ const RegistrationOverview = () => {
 
   // Fetch animals from the backend API
   useEffect(() => {
-    const fetchAnimals = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/animals');
+      const fetchAnimals = async () => {
+        try {
+          const response = await axios.get('http://localhost:8080/animals');
 
-        const parsedAnimals: Animal[] = response.data.map((animal: { registrationDate: string | number | Date; }) => ({
-          ...animal,
-          registrationDate: new Date(animal.registrationDate),
-        }));
+          const parsedAnimals: Animal[] = response.data.map((animal: { registrationDate: string | number | Date; }) => ({
+            ...animal,
+            registrationDate: new Date(animal.registrationDate),
+          }));
 
-        const animalsWithFarmNames = parsedAnimals.map(animal => {
-          const origin = origins.find(o => o.id === animal.origin);
-          return { ...animal, name_of_farm: origin ? origin.name_of_farm : '' };
-        });
+          setAnimals(parsedAnimals);
+        } catch (error) {
+          console.error("Error fetching animals:", error);
+        }
+      };
 
-        setAnimals(animalsWithFarmNames);
-      } catch (error) {
-        console.error("Error fetching animals:", error);
-      }
-    };
+      fetchAnimals();
+    }, []);
 
-    // fetching data
-    fetchAnimals();
-  }, [origins]);
 
-  const formatDate = (date : Date) => {
+    const formatDate = (date : Date) => {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
@@ -61,7 +61,7 @@ const RegistrationOverview = () => {
     const formattedDate = formatDate(animal.registrationDate);
     return (
         (!filterDate || formattedDate === formatInputDate(filterDate)) &&
-        (!filterOrigin || animal.origin.toString() === filterOrigin)
+        (!filterOrigin || animal.origin.id.toString() === filterOrigin)
     );
   }).sort((a, b) => b.registrationDate.getTime() - a.registrationDate.getTime());
 
@@ -109,7 +109,7 @@ const RegistrationOverview = () => {
                 <td>{animal.id}</td>
                 <td>{formatDate(animal.registrationDate)}</td>
                 <td>{animal.weight}</td>
-                <td>{animal.name_of_farm}</td>
+                <td>{animal.origin.name_of_farm}</td>
               </tr>
           ))}
           </tbody>

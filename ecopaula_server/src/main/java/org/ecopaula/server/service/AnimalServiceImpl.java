@@ -41,4 +41,11 @@ public class AnimalServiceImpl implements AnimalService {
         List<Animal> animals = animalRepository.findAll();
         return animals.stream().map(animalConverter::toDto).collect(Collectors.toList());
     }
+
+    @Override
+    public List<AnimalDTO> getAnimalsByProductId(int productId) {
+       List<Animal> animals = animalRepository.findAnimalsByProductId(productId);
+
+       return animals.stream().map(animalConverter::toDto).collect(Collectors.toList());
+    }
 }

@@ -1,12 +1,14 @@
 package org.ecopaula.server.dto;
 
+import org.ecopaula.server.entity.Origin;
+
 import java.util.Date;
 
 public class AnimalDTO {
     private int id;
     private double weight;
     private Date registrationDate;
-    private int origin;
+    private Origin origin;
 
     public AnimalDTO() {
     }
@@ -35,11 +37,11 @@ public class AnimalDTO {
         this.registrationDate = registrationDate;
     }
 
-    public int getOrigin() {
+    public Origin getOrigin() {
         return origin;
     }
 
-    public void setOrigin(int origin) {
+    public void setOrigin(Origin origin) {
         this.origin = origin;
     }
 }

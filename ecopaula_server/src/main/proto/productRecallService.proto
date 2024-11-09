@@ -1,0 +1,37 @@
+﻿syntax = "proto3";
+option java_multiple_files = true;
+
+package org.ecopaula.server.grpc;
+
+import "google/protobuf/timestamp.proto";
+
+message OriginGrpc {
+  int32 id = 1;
+  string name_of_farm = 2;
+}
+
+message AnimalGrpc {
+  int32 id = 1;
+  double weight = 2;
+  OriginGrpc origin = 3;
+  google.protobuf.Timestamp registrationDate = 4;
+}
+
+message ProductGrpc {
+  int32 id = 1;
+  string description = 2;
+}
+
+message AnimalList {
+  repeated AnimalGrpc animals = 1;
+}
+
+message ProductList {
+  repeated ProductGrpc products = 1;
+}
+
+service ProductRecallService {
+  rpc getAnimalsByProductNo(ProductGrpc) returns (AnimalList);
+  rpc getProductsByAnimal(AnimalGrpc) returns (ProductList);
+}
+

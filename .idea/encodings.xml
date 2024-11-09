@@ -3,5 +3,7 @@
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
     <file url="file://$PROJECT_DIR$/ecopaula_server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ecopaula_server/src/main/java/org/ecopaula/server/entity/Animal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ecopaula_server/target/generated-sources/protobuf/grpc-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ecopaula_server/target/generated-sources/protobuf/java" charset="UTF-8" />
   </component>
 </project>
