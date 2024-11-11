@@ -13,6 +13,13 @@ public class AnimalDTO {
     public AnimalDTO() {
     }
 
+    public AnimalDTO(int i, double v, Date date, Origin origin) {
+        id = i;
+        weight = v;
+        registrationDate = date;
+        this.origin = origin;
+    }
+
     public int getId() {
         return id;
     }
