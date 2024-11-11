@@ -1,0 +1,23 @@
+animal(id, weight)
+PK: id
+
+product(id, desc)
+PK: id
+
+part_type(id,type)
+PK: id
+
+cut(id, weight, part_type, animal_id, tray_id)
+PK: animal_id, id
+FK: animal_id ref animal(id)
+FK: part_type ref part_type(id)
+FK: tray_id ref tray(id)
+
+tray(id, max_weight, part_type)
+PK: id
+FK: part_type ref part_type(id)
+
+trays_in_product(tray_id, product_id)
+PK: tray_id, product_id
+FK: tray_id ref tray(id)
+FK: product_id ref product(id)

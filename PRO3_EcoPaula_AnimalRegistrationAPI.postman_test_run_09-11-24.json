@@ -1,0 +1,133 @@
+{
+	"id": "2fbcd93c-c799-44ef-abfd-ab7efe93d9be",
+	"name": "PRO3_EcoPaula_AnimalRegistrationAPI",
+	"timestamp": "2024-11-09T23:19:14.165Z",
+	"collection_id": "38636656-dc4eec0f-9dcd-4132-951e-27087558cef8",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 6,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-11-09T23:19:12.576Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8437383e-0884-4b37-9eb0-24229d87c9d8",
+			"name": "RegisterAnimal",
+			"url": "http://localhost:8080/animals",
+			"time": 251,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has animal ID": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has animal ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has animal ID": true
+				}
+			]
+		},
+		{
+			"id": "09412a4f-cd22-40a5-ab19-5e635238e339",
+			"name": "GetAllAnimals",
+			"url": "http://localhost:8080/animals",
+			"time": 253,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				253
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an array": true
+				}
+			]
+		},
+		{
+			"id": "eceb05a2-3bbd-4e61-b1a0-5351ac01196d",
+			"name": "GetAllOrigins",
+			"url": "http://localhost:8080/origins",
+			"time": 74,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				74
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an array": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 578,
+	"collection": {
+		"requests": [
+			{
+				"id": "8437383e-0884-4b37-9eb0-24229d87c9d8",
+				"method": "POST"
+			},
+			{
+				"id": "09412a4f-cd22-40a5-ab19-5e635238e339",
+				"method": "GET"
+			},
+			{
+				"id": "eceb05a2-3bbd-4e61-b1a0-5351ac01196d",
+				"method": "GET"
+			}
+		]
+	}
+}
