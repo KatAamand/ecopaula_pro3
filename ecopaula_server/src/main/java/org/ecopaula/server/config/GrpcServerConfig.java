@@ -12,8 +12,7 @@ import java.io.IOException;
 @Configuration
 public class GrpcServerConfig {
     private Server server;
-
-    private ProductRecallServiceImpl productRecallService;
+    private final ProductRecallServiceImpl productRecallService;
 
     public GrpcServerConfig(ProductRecallServiceImpl productRecallService) {
         this.productRecallService = productRecallService;
@@ -23,7 +22,7 @@ public class GrpcServerConfig {
     public void start() throws IOException {
         server = ServerBuilder.forPort(9095).addService(productRecallService).build().start();
 
-        System.out.println("grpc server started on port 9090");
+        System.out.println("grpc server started on port 9095");
     
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("shutting down gRPC server");
@@ -37,5 +36,18 @@ public class GrpcServerConfig {
         if (server != null) {
             server.shutdown();
         }
+
+        try {
+            // Wait up to 5 seconds for the server to terminate gracefully
+            if (!server.awaitTermination(3, java.util.concurrent.TimeUnit.SECONDS)) {
+                System.out.println("Forcing gRPC server shutdown...");
+                server.shutdownNow(); // Force shutdown if not completed in 5 seconds
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted while waiting for gRPC server to shut down, forcing shutdown now.");
+            server.shutdownNow();
+        }
+
+        System.out.println("gRPC server shutdown complete.");
     }
 }
