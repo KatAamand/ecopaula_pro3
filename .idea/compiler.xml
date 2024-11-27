@@ -6,14 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="shared_library" />
         <module name="ecopaula_productRecallService" />
         <module name="ecopaula_server" />
+        <module name="station1_registration" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ecopaula_server" options="-parameters" />
+      <module name="ecopaula_server" options="" />
+      <module name="station1_registration" options="-parameters" />
     </option>
   </component>
 </project>

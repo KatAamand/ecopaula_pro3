@@ -1,7 +1,7 @@
 package org.ecopaula.server.service;
 
-import org.ecopaula.server.dto.AnimalDTO;
-import org.ecopaula.server.entity.Animal;
+import dto.AnimalDTO;
+import entity.Animal;
 import org.ecopaula.server.repository.AnimalRepository;
 import org.ecopaula.server.util.converters.AnimalConverter;
 import org.springframework.stereotype.Service;

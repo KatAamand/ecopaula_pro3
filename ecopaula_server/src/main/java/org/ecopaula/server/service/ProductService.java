@@ -1,7 +1,7 @@
 package org.ecopaula.server.service;
 
 
-import org.ecopaula.server.dto.ProductDTO;
+import dto.ProductDTO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.ecopaula.server.entity;
+package entity;
 
 import jakarta.persistence.*;
 

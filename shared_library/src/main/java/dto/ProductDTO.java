@@ -1,4 +1,4 @@
-package org.ecopaula.server.dto;
+package dto;
 
 public class ProductDTO {
     int id;

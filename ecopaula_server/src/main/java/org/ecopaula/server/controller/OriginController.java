@@ -1,6 +1,6 @@
 package org.ecopaula.server.controller;
 
-import org.ecopaula.server.dto.OriginDTO;
+import dto.OriginDTO;
 import org.ecopaula.server.service.OriginService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

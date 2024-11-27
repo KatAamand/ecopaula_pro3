@@ -1,10 +1,9 @@
 package org.ecopaula.server.grpc;
 
+import dto.AnimalDTO;
+import dto.ProductDTO;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.ecopaula.server.*;
-import org.ecopaula.server.dto.AnimalDTO;
-import org.ecopaula.server.dto.ProductDTO;
 import org.ecopaula.server.service.AnimalService;
 import org.ecopaula.server.service.ProductService;
 

@@ -1,6 +1,6 @@
 package org.ecopaula.server.service;
 
-import org.ecopaula.server.dto.ProductDTO;
+import dto.ProductDTO;
 import org.ecopaula.server.repository.ProductRepository;
 import org.ecopaula.server.util.converters.ProductConverter;
 import org.springframework.stereotype.Service;

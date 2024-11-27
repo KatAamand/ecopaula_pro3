@@ -1,6 +1,6 @@
 package org.ecopaula.server.repository;
 
-import org.ecopaula.server.entity.Origin;
+import entity.Origin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

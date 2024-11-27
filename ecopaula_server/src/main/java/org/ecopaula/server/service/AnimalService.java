@@ -1,7 +1,6 @@
 package org.ecopaula.server.service;
 
-import org.ecopaula.server.dto.AnimalDTO;
-import org.ecopaula.server.entity.Animal;
+import dto.AnimalDTO;
 
 import java.util.List;
 

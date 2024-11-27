@@ -1,10 +1,10 @@
 package org.ecopaula.server.grpc;
 
 import com.google.protobuf.Timestamp;
+import dto.AnimalDTO;
+import dto.ProductDTO;
 import jakarta.persistence.Converter;
-import org.ecopaula.server.dto.AnimalDTO;
-import org.ecopaula.server.dto.ProductDTO;
-import org.ecopaula.server.entity.Origin;
+import entity.Origin;
 
 import java.time.Instant;
 import java.util.Date;

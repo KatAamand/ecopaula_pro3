@@ -1,6 +1,6 @@
 package org.ecopaula.server.controller;
 
-import org.ecopaula.server.dto.AnimalDTO;
+import dto.AnimalDTO;
 import org.ecopaula.server.service.AnimalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
-package org.ecopaula.server.dto;
+package dto;
 
-import org.ecopaula.server.entity.Origin;
+import entity.Origin;
 
 import java.util.Date;
 

@@ -1,7 +1,6 @@
 package org.ecopaula.server.service;
 
-import org.ecopaula.server.dto.OriginDTO;
-import org.ecopaula.server.entity.Origin;
+import dto.OriginDTO;
 
 import java.util.List;
 

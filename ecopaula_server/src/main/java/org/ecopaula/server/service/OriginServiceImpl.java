@@ -1,7 +1,7 @@
 package org.ecopaula.server.service;
 
-import org.ecopaula.server.dto.OriginDTO;
-import org.ecopaula.server.entity.Origin;
+import dto.OriginDTO;
+import entity.Origin;
 import org.ecopaula.server.repository.OriginRepository;
 import org.ecopaula.server.util.converters.OriginConverter;
 import org.springframework.stereotype.Service;
