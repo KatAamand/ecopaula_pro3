@@ -1,0 +1,10 @@
+dto\ProductDTO.class
+entity\PartType.class
+entity\Product.class
+dto\AnimalDTO.class
+entity\Origin.class
+entity\Cut.class
+entity\Animal.class
+rabbitMQ\RabbitMQConstants.class
+entity\Tray.class
+dto\OriginDTO.class

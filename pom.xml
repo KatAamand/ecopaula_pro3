@@ -15,6 +15,7 @@
         <module>ecopaula_server</module>
         <module>station1_registration</module>
         <module>ecopaula_productRecallService</module>
+        <module>station2</module>
     </modules>
 
     <properties>

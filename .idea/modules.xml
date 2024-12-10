@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ecopaula_gui.iml" filepath="$PROJECT_DIR$/ecopaula_gui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ecopaula_server/ecopaula_server.iml" filepath="$PROJECT_DIR$/ecopaula_server/ecopaula_server.iml" />
     </modules>
   </component>
 </project>

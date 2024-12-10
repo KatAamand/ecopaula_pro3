@@ -1,6 +1,7 @@
 package org.ecopaula.station1_registration.rabbitMQ;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rabbitMQ.RabbitMQConstants;
@@ -10,7 +11,7 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue station1Queue() {
-        return new Queue(RabbitMQConstants.STATION1_QUEUE);
+        return new Queue(RabbitMQConstants.REGISTRATION_QUEUE, true);
     }
 
     @Bean
@@ -30,5 +31,10 @@ public class RabbitMQConfig {
     @Bean
     Binding serverBinding(Queue station1Queue, FanoutExchange serverExchange) {
         return BindingBuilder.bind(station1Queue).to(serverExchange);
+    }
+
+    @Bean
+    public Jackson2JsonMessageConverter jackson2JsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 }

@@ -32,7 +32,7 @@ public class DatabaseConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource);
-        entityManagerFactory.setPackagesToScan("org.ecopaula.server.entity");
+        entityManagerFactory.setPackagesToScan("entity");
         entityManagerFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         // Hibernate properties

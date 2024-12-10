@@ -1,4 +1,4 @@
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -18,9 +18,8 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto align-items-center">
                         <Nav.Link as={Link} to="/">Overview</Nav.Link>
-                        <Nav.Link as={Link} to="/register">
-                            <Button variant="outline-success">Register Animal</Button>
-                        </Nav.Link>
+                        <Nav.Link as={Link} to="/register">Register Animal</Nav.Link>
+                        <Nav.Link as={Link} to="/dissect">Dissection</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -2,9 +2,10 @@ package dto;
 
 import entity.Origin;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AnimalDTO {
+public class AnimalDTO implements Serializable {
     private int id;
     private double weight;
     private Date registrationDate;
@@ -50,5 +51,10 @@ public class AnimalDTO {
 
     public void setOrigin(Origin origin) {
         this.origin = origin;
+    }
+
+    @Override
+    public String toString() {
+        return "AnimalDTO{id=" + id;
     }
 }

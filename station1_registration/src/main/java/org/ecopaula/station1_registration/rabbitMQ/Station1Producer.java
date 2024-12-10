@@ -9,8 +9,11 @@ import rabbitMQ.RabbitMQConstants;
 @Service
 public class Station1Producer {
 
-    @Autowired
     private RabbitTemplate rabbitTemplate;
+
+    public Station1Producer(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
+    }
 
     public void sendToStation2(AnimalDTO animal) {
         rabbitTemplate.convertAndSend(RabbitMQConstants.STATIONS_EXCHANGE, "station2", animal);

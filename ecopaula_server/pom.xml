@@ -10,7 +10,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.ecopaula</groupId>
     <artifactId>ecopaula_server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ecopaula_server</name>
@@ -31,6 +30,7 @@
     <properties>
         <java.version>21</java.version>
         <spring-boot.version>3.3.5</spring-boot.version>
+        <grpc.version>1.63.0</grpc.version>
     </properties>
 
     <dependencyManagement>
@@ -94,20 +94,19 @@
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
-            <version>1.68.0</version>
+            <version>${grpc.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-stub</artifactId>
-            <version>1.68.0</version>
+            <version>${grpc.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty</artifactId>
-            <version>1.68.0</version>
+            <version>${grpc.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
@@ -135,6 +134,10 @@
             <artifactId>shared_library</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
         </dependency>
 
     </dependencies>

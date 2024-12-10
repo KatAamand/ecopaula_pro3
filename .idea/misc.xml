@@ -10,7 +10,16 @@
         <option value="$PROJECT_DIR$/shared/pom.xml" />
         <option value="$PROJECT_DIR$/shared_library/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/station2_dissection/pom.xml" />
+        <option value="$PROJECT_DIR$/station3_packaging/pom.xml" />
+        <option value="$PROJECT_DIR$/station2/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/station2_dissection/pom.xml" />
+        <option value="$PROJECT_DIR$/station3_packaging/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="liberica-21" project-jdk-type="JavaSDK">

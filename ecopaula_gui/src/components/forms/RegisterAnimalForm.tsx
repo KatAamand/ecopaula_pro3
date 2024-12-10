@@ -23,7 +23,7 @@ const RegisterAnimalForm = () => {
 
         try {
             // Send a POST request to the backend API
-            const response = await axios.post('http://localhost:8080/animals', animalData);
+            const response = await axios.post('http://localhost:8085/station1/register', animalData);
             console.log('Animal registered successfully:', response.data);
 
             // Reset form fields after successful submission
@@ -40,8 +40,9 @@ const RegisterAnimalForm = () => {
     return (
         <div className="container">
             <div className="d-flex justify-content-center align-items-center w-100">
-                <div className="p-4 bg-white shadow rounded" style={{ width: '400px' }}>
-                    <h2 className="text-center mb-4">Register Animal</h2>
+                <div className="p-4 bg-white shadow rounded text-center" style={{width: '400px'}}>
+                    <p className="Lead mb-0">Station 1</p>
+                    <h2 className="mb-4">Register Animal</h2>
                     <Form onSubmit={handleSubmit}>
                         <InputGroup className="mb-3">
                             <InputGroup.Text>

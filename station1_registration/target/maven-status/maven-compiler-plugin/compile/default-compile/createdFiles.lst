@@ -1,0 +1,5 @@
+org\ecopaula\station1_registration\rabbitMQ\RabbitMQConfig.class
+org\ecopaula\station1_registration\RegistrationController.class
+org\ecopaula\station1_registration\rabbitMQ\Station1Producer.class
+org\ecopaula\station1_registration\rabbitMQ\Station1TestConfig.class
+org\ecopaula\station1_registration\Station1RegistrationApplication.class

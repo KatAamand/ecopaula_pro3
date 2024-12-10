@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import { OriginsProvider } from './OriginsContext';
 import RegistrationOverview from "./components/RegistrationOverview.tsx";
 import RegisterAnimalForm from "./components/forms/RegisterAnimalForm.tsx";
+import DissectionStation from "./components/DissectionStation.tsx";
 
 const pageStyle = {
     background: 'linear-gradient(135deg, #fdfbf7, #ece2d0)',
@@ -20,6 +21,7 @@ function App() {
                     <Routes>
                         <Route path="/register" element={<RegisterAnimalForm />} />
                         <Route path="/" element={<RegistrationOverview />} />
+                        <Route path="/dissect" element={<DissectionStation />} />
                     </Routes>
                 </div>
             </Router>
